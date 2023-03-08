@@ -1,4 +1,4 @@
-<section id="message" class="relative w-full h-[100vh] lg:w-[360px]  mx-auto bg-white lg:mt-5 overflow-y-scroll pb-[100px]">
+<section id="message" class="relative w-full h-[100%] lg:w-[360px]  mx-auto bg-white lg:mt-5 overflow-y-scroll pb-[100px]">
     <div id="header" class="fixed top-0 w-full lg:w-[360px] flex items-center justify-between px-[16px] h-[56px] bg-[#FAAE2B]">
         <div class="flex gap-[16px] items-center">
             <a href="">
@@ -19,7 +19,12 @@
                 <button @click="isOpen = !isOpen">
                     <img src="./assets/icons/three dots.svg" alt="">
                 </button>
-                <div x-cloak x-show="isOpen" @click.away="isOpen = false" class="absolute w-[100px] bg-[#201B84] rounded-lg right-0">
+                <div 
+                    x-cloak 
+                    x-show="isOpen" 
+                    @click.away="isOpen = false" 
+                    class="absolute w-[100px] bg-[#201B84] rounded-lg right-0"
+                >
                     <ul class="text-center py-3">
                         <li class="px-3 ">
                             <a wire:click="logout" href="#" class="text-white">Logout</a>
