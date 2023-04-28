@@ -1,4 +1,4 @@
-<section id="message" class="relative w-full h-[100%] lg:w-[360px]  mx-auto bg-white lg:mt-5 overflow-y-scroll pb-[100px]">
+<section id="message" class="relative w-full h-[100vh] lg:w-[360px]  mx-auto bg-white lg:mt-5 overflow-y-scroll pb-[100px]">
     <div id="header" class="fixed top-0 w-full lg:w-[360px] flex items-center justify-between px-[16px] h-[56px] bg-[#FAAE2B]">
         <div class="flex gap-[16px] items-center">
             <a href="">
@@ -37,15 +37,6 @@
 
     <div class=" px-[16px] mt-[80px]" wire:poll="getChat">
         @foreach ($listChat as $message)
-            {{-- @if (date('Y-m-d') !== $message->created_at->format('Y-m-d'))
-                <h3 class="text-center  mb-[28px] text-[12px]">
-                    {{$message->created_at->format('l')}}, {{$message->created_at->format('F')}}, {{$message->created_at->format('d')}}, {{$message->created_at->format('Y')}}
-                </h3>
-            @else
-                    <h3 class="text-center mt-[24px] mb-[28px] text-[12px]">
-                        Today
-                    </h3>
-            @endif --}}
             @if ($message->user->id == session()->get('idPengguna'))
                 <div class="flex items-center justify-end gap-[16px] mb-[8px]">
                     <span class="text-[10px] text-[##000000]">{{$message->created_at->format('H:i A')}}</span>

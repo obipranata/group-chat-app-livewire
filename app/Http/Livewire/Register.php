@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class Register extends Component
 {
@@ -23,7 +24,7 @@ class Register extends Component
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'password' => $this->password
+            'password' => Hash::make($this->password)
         ]);
         if (!session()->isStarted()) {
             session()->start();
