@@ -15,12 +15,14 @@ class ListChat extends Component
     }
 
     public function send(){
-        Message::create([
-            'user_id' => request()->session()->get('idPengguna'),
-            'message' => $this->message
-        ]);
-
-        $this->message = '';
+        if($this->message){
+            Message::create([
+                'user_id' => request()->session()->get('idPengguna'),
+                'message' => $this->message
+            ]);
+    
+            $this->message = '';
+        }
     }
 
     public function getChat(){

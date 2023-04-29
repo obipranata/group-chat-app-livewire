@@ -38,8 +38,8 @@
     <div class=" px-[16px] mt-[80px]" wire:poll="getChat">
         @foreach ($listChat as $message)
             @if ($message->user->id == session()->get('idPengguna'))
-                <div class="flex items-center justify-end gap-[16px] mb-[8px]">
-                    <span class="text-[10px] text-[##000000]">{{$message->created_at->format('H:i A')}}</span>
+                <div class="flex items-center justify-end gap-[16px] mb-[24px]">
+                    <span class="text-[10px] text-[#000000]">{{$message->created_at->format('H:i A')}}</span>
                     <div class="w-[145px] bg-[#FAAE2B] px-[16px] py-[12px] rounded-[20px] box-border">
                     <p class="text-[12px]">{{$message->message}}</p>
                     </div>
@@ -48,17 +48,18 @@
                     </div>
                 </div>
             @else
-                <div class="mb-[8px]">
+                <div class="mb-[24px]">
+                    <p class="text-[12px]">{{$message->user->name}}</p>
                     <div class="flex items-center justify-start gap-[16px]">
                         <div class="avatar">
-                        <img class="w-[40px] h-[40px] rounded-full" src="{{$message->user->getAvatar()}}" alt="">
+                            <img class="w-[40px] h-[40px] rounded-full" src="{{$message->user->getAvatar()}}" alt="">
                         </div>
                         <div class="w-[145px] bg-[#FAAE2B] px-[16px] py-[12px] rounded-[20px] box-border">
                         <p class="text-[12px]">{{$message->message}}</p>
                         </div>
-                        <span class="text-[10px] text-[##000000]">{{$message->created_at->format('H:i A')}}</span>
+                        <span class="text-[10px] text-[#000000]">{{$message->created_at->format('H:i A')}}</span>
                     </div>
-                    <p class="text-[12px]">{{$message->user->name}}</p>
+                    
                 </div>
             @endif
         @endforeach
